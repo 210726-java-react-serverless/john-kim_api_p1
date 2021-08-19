@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="john_callahan_p0" />
         <module name="john-kim_api_p1" />
+        <module name="john-kim_api_p1-1" />
       </profile>
     </annotationProcessing>
   </component>
