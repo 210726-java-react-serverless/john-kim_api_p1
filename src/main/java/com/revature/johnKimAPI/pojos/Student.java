@@ -1,6 +1,9 @@
 package com.revature.johnKimAPI.pojos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 import java.util.Objects;
 
 /**
@@ -19,6 +22,7 @@ public class Student {
     private String email;
     private String username;
     private int hashPass;
+    private final boolean role = false;
 
     // public empty constructor is needed to retrieve the POJO
     public Student(){}
@@ -29,6 +33,18 @@ public class Student {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public Student(StudentPrincipal principal) {
+        this.username = principal.getUsername();
+        this.hashPass = principal.getPassword().hashCode();
+        this.firstName = principal.getFirstName();
+        this.lastName = principal.getLastName();
+        this.email = principal.getEmail();
+    }
+
+    public boolean isRole() {
+        return role;
     }
 
     public String getStudentID() {

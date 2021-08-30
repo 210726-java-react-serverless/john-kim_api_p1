@@ -1,5 +1,7 @@
 package com.revature.johnKimAPI.web.dtos;
 
+import com.revature.johnKimAPI.pojos.Course;
+
 import java.util.Objects;
 
 public class Credentials {
@@ -12,7 +14,9 @@ public class Credentials {
     public Credentials(String username, String password) {
         this.username = username;
         this.password = password;
+
     }
+
 
     public String getUsername() {
         return username;
@@ -30,12 +34,14 @@ public class Credentials {
         this.password = password;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Credentials that = (Credentials) o;
-        return Objects.equals(username, that.username) && Objects.equals(password, that.password);
+        return Objects.equals(username, that.username)
+                && Objects.equals(password, that.password);
     }
 
     @Override

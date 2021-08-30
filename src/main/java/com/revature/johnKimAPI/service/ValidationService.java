@@ -33,7 +33,7 @@ public class ValidationService {
         private Faculty authFac;
 
 
-        public void register(Student newStudent) {
+        public Student register(Student newStudent) {
 
                 if (!isUserValid(newStudent)) {
                         throw new InvalidRequestException("Invalid user data provided!");
@@ -42,6 +42,7 @@ public class ValidationService {
                 schoolRepo.save(newStudent);
                 logger.info("New Student registered!" + newStudent);
 
+                return newStudent;
         }
 
         // This will attempt to persist a created course to the courses database.
@@ -64,12 +65,8 @@ public class ValidationService {
 
         // This enrolls a student into a course, grafting their username to it,
         // and placing it within the separate 'enrolled' database.
-        public void enroll(Course selectedCourse) {
-                if (isCourseValid(selectedCourse)) {
-                        Enrolled enrollIn = new Enrolled(this.authStudent.getUsername(), selectedCourse.getName(),
-                                selectedCourse.getClassID(), selectedCourse.getDesc(), selectedCourse.getTeacher());
-                        schoolRepo.enroll(enrollIn);
-                }
+        public void enroll(Enrolled course) {
+                schoolRepo.enroll(course);
         }
 
         // Wipes user data and sets the session to an invalid one.
@@ -129,23 +126,26 @@ public class ValidationService {
         }
 
         // This returns one class at the user's request (for the purposes of an update function)
-        public Course getCourseByID(String id) { return schoolRepo.findCourseByID(id); }
+        public Course getCourseByID(String id) {
+                return schoolRepo.findCourseByID(id); }
 
         // This returns all classes that are open for enrollment.
         public List<Course> getOpenClasses() { return schoolRepo.findCourseByOpen(); }
 
         // This returns all classes associated with a student username.
-        public List<Enrolled> getMyCourses() { return schoolRepo.findEnrolledByUsername(this.authStudent.getUsername()); }
+        public List<Enrolled> getMyCourses(String username) {
+                return schoolRepo.findEnrolledByUsername(username);
+        }
 
         // This fetches the list of classes associated with a certain teacher name.
-        public List<Course> getTeacherClasses() { return schoolRepo.findCourseByTeacher(this.authFac.getLastName()); }
+        public List<Course> getTeacherClasses(String teacher) { return schoolRepo.findCourseByTeacher(teacher); }
 
         public void updateCourse(Course newCourse, String id) {
-                if (isCourseValid(newCourse)) {
+                if(isCourseValid(newCourse)) {
                         String teacher = this.authFac.getLastName();
                         schoolRepo.updateCourse(newCourse, id, teacher);
                 } else {
-                        throw new ResourcePersistenceException("Sorry, but that could not be persisted!");
+                        throw new ResourcePersistenceException("New course not valid!");
                 }
         }
 
@@ -162,17 +162,15 @@ public class ValidationService {
                 return false;
         }
 
-        public boolean deregister(String id) {
+        public void deregister(String id, String username) {
                 try {
                         if (isClassIDValid(id) && isClassIDTaken(id)) {
-                                schoolRepo.deleteEnrolled(id, this.authStudent.getUsername());
+                                schoolRepo.deleteEnrolled(id, username);
                                 logger.info("Course " + id + " owned by " + authStudent.getUsername() + " deleted!");
-                                return true;
                         }
                 } catch(InvalidRequestException ire) {
                         System.out.println(ire.getMessage());
                 }
-                return false;
         }
 
 

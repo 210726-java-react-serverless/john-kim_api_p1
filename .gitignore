@@ -26,8 +26,12 @@ hs_err_pid*
 .idea/
 *.iml
 
+# Workspace.xml
+.idea/workspace.xml
+
 # Build folder
 target/
 
 # Properties files
 *.properties
+

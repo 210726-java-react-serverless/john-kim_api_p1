@@ -1,5 +1,7 @@
 package com.revature.johnKimAPI.pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Objects;
 
 /**
@@ -8,6 +10,7 @@ import java.util.Objects;
  * they aren't tagged with any specific student.
  */
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Enrolled {
     private String classID;
     private String username;
@@ -16,7 +19,7 @@ public class Enrolled {
     private String teacher;
     boolean isOpen;
 
-    // Empty, no-args constructor is necessary for the POJO to be grabbed my Mongo.
+    // Empty, no-args constructor is necessary for the POJO to be grabbed by Mongo.
     public Enrolled() {}
 
     public Enrolled(String username, String name, String id, String desc, String teacher) {
@@ -64,7 +67,7 @@ public class Enrolled {
     }
 
     public void setOpen(boolean open) {
-        isOpen = open;
+        this.isOpen = open;
     }
 
     public String getUsername() {

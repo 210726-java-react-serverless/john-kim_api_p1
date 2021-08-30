@@ -4,7 +4,9 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <display-name>school</display-name>
+
+
+    <displayName>school</displayName>
     <!--
         The container will search the web application directory for one of the following
         files to serve up if a request is made to the root of the web application's context

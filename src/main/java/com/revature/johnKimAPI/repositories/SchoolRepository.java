@@ -54,24 +54,38 @@ public class SchoolRepository {
 
         try {
             MongoDatabase database = mongoClient.getDatabase("Project0School").withCodecRegistry(pojoCodecRegistry);
-            MongoCollection<Student> collection = database.getCollection("StudentCredentials", Student.class);
+            MongoCollection<Document> collection = database.getCollection("StudentCredentials");
+
+            Document newUserDoc = new Document ("firstName", newStudent.getFirstName())
+                                        .append("lastName", newStudent.getLastName())
+                                        .append("email", newStudent.getEmail())
+                                        .append("username", newStudent.getUsername())
+                                        .append("hashPass", newStudent.getHashPass());
 
             // this inserts the instance into the "StudentCredentials" database.
-            collection.insertOne(newStudent);
+            collection.insertOne(newUserDoc);
+
+            newStudent.setStudentID(newUserDoc.get("_id").toString());
+            System.out.println(newStudent);
 
         } catch (Exception e) {
             logger.error("Threw an exception at SchoolRepository::save(), full StackTrace follows: " + e);
         }
-        return null;
+        return newStudent;
     }
 
     public void enroll(Enrolled course) {
         try {
             MongoDatabase database = mongoClient.getDatabase("Project0School").withCodecRegistry(pojoCodecRegistry);
-            MongoCollection<Enrolled> collection = database.getCollection("enrolled", Enrolled.class);
+            MongoCollection<Document> collection = database.getCollection("enrolled");
 
+            Document newDoc = new Document ("classID", course.getClassID())
+                                        .append("name", course.getName())
+                                        .append("teacher", course.getTeacher())
+                                        .append("username", course.getUsername())
+                                        .append("open", true);
             // this inserts the instance into the "StudentCredentials" database.
-            collection.insertOne(course);
+            collection.insertOne(newDoc);
 
         } catch (Exception e) {
             logger.error("Threw an exception at SchoolRepository::register(), full StackTrace follows: " + e);
@@ -147,19 +161,12 @@ public class SchoolRepository {
     // This is used so that students can see their courses.
     public List<Enrolled> findEnrolledByUsername(String username) {
 
-        try {
-            MongoDatabase p0school = mongoClient.getDatabase("Project0School").withCodecRegistry(pojoCodecRegistry);
-            MongoCollection<Enrolled> usersCollection = p0school.getCollection("enrolled", Enrolled.class);
-            Document queryDoc = new Document("username", username);
-            List<Enrolled> courses = new ArrayList<>();
-            usersCollection.find(queryDoc).into(courses);
+        List<Enrolled> enrolled = new ArrayList<>();
+        MongoDatabase p0school = mongoClient.getDatabase("Project0School").withCodecRegistry(pojoCodecRegistry);
+        MongoCollection<Enrolled> usersCollection = p0school.getCollection("enrolled", Enrolled.class);
+        Document queryDoc = new Document("username", username);
+        return usersCollection.find(queryDoc).into(enrolled);
 
-            return courses;
-        } catch (Exception e) {
-            System.out.println("An exception has occurred!" + e.getMessage());
-            logger.error("Problem occurred when parsing the data from Mongo. Full Stack Trace follows:: " + e);
-        }
-        return null;
     }
 
     // This method is primarily used by Teachers to find classes that they put onto the database, for deletion and updates.

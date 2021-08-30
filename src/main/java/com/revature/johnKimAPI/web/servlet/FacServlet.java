@@ -2,20 +2,20 @@ package com.revature.johnKimAPI.web.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
-import com.revature.johnKimAPI.pojos.Course;
-import com.revature.johnKimAPI.pojos.Faculty;
 import com.revature.johnKimAPI.service.ValidationService;
 import com.revature.johnKimAPI.util.exceptions.InvalidRequestException;
 import com.revature.johnKimAPI.util.exceptions.ResourcePersistenceException;
 import com.revature.johnKimAPI.web.dtos.Credentials;
 import com.revature.johnKimAPI.web.dtos.ErrorResponse;
 import com.revature.johnKimAPI.web.dtos.Principal;
+import com.revature.johnKimAPI.web.util.security.TokenGenerator;
+import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import sun.misc.Request;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -23,16 +23,20 @@ public class FacServlet extends HttpServlet {
 
     private final ValidationService userService;
     private final ObjectMapper mapper;
+    private final TokenGenerator generator;
 
-    public FacServlet(ValidationService userService, ObjectMapper mapper) {
+    public FacServlet(ValidationService userService, ObjectMapper mapper, TokenGenerator generator) {
         this.userService = userService;
         this.mapper = mapper;
+        this.generator = generator;
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter respWriter = resp.getWriter();
         resp.setContentType("application/json");
+
+        Logger logger = LoggerFactory.getLogger(FacServlet.class);
 
         try {
 
@@ -46,8 +50,11 @@ public class FacServlet extends HttpServlet {
             String payload = mapper.writeValueAsString(validFac);
             resp.getWriter().write(payload);
 
-            HttpSession session = req.getSession();
-            session.setAttribute("faculty", validFac);
+            // JWT = JSON Web Token
+            String token = generator.generateToken(validFac);
+            resp.setHeader(generator.getJwtConfig().getHeader(), token);
+
+            logger.info("JWT Successfully created for Faculty!");
 
         } catch (InvalidRequestException | MismatchedInputException e) {
             e.printStackTrace();

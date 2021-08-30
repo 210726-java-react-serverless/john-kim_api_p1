@@ -2,15 +2,14 @@ package com.revature.johnKimAPI.web.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
+
+import com.revature.johnKimAPI.pojos.Student;
+import com.revature.johnKimAPI.pojos.StudentPrincipal;
 import com.revature.johnKimAPI.service.ValidationService;
 import com.revature.johnKimAPI.util.exceptions.InvalidRequestException;
 import com.revature.johnKimAPI.util.exceptions.ResourcePersistenceException;
-import com.revature.johnKimAPI.web.dtos.Credentials;
 import com.revature.johnKimAPI.web.dtos.ErrorResponse;
 import com.revature.johnKimAPI.web.dtos.Principal;
-import com.revature.johnKimAPI.web.util.security.TokenGenerator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,16 +18,14 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class AuthServlet extends HttpServlet {
+public class RegistrationServlet extends HttpServlet {
 
     private final ValidationService userService;
     private final ObjectMapper mapper;
-    private final TokenGenerator generator;
 
-    public AuthServlet(ValidationService userService, ObjectMapper mapper, TokenGenerator generator) {
+    public RegistrationServlet(ValidationService userService, ObjectMapper mapper) {
         this.userService = userService;
         this.mapper = mapper;
-        this.generator = generator;
     }
 
     @Override
@@ -36,24 +33,18 @@ public class AuthServlet extends HttpServlet {
         PrintWriter respWriter = resp.getWriter();
         resp.setContentType("application/json");
 
-        Logger logger = LoggerFactory.getLogger(AuthServlet.class);
 
         try {
 
-            Credentials student = mapper.readValue(req.getInputStream(), Credentials.class);
-            int hashPass = student.getPassword().hashCode();
+            StudentPrincipal newStudent = mapper.readValue(req.getInputStream(), StudentPrincipal.class);
+            Student hashedStudent = new Student(newStudent);
 
-            // Log the user in!
-            Principal validUser = userService.login(student.getUsername(), hashPass);
+            Student newUser = userService.register(hashedStudent);
 
-            // Send them back a 200 with a "success!" message.
-            String payload = mapper.writeValueAsString(validUser);
+            String payload = mapper.writeValueAsString(newUser);
             resp.getWriter().write(payload);
 
-            String token = generator.generateToken(validUser);
-            resp.setHeader(generator.getJwtConfig().getHeader(), token);
 
-            logger.info("JWT Successfully created for Student!");
 
         } catch (InvalidRequestException | MismatchedInputException e) {
             e.printStackTrace();
@@ -68,5 +59,8 @@ public class AuthServlet extends HttpServlet {
             e.printStackTrace();
             resp.setStatus(500); // Server's fault
         }
+
     }
+
+
 }

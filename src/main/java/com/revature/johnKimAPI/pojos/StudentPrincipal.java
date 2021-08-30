@@ -1,31 +1,20 @@
 package com.revature.johnKimAPI.pojos;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import java.util.Objects;
 
-/**
- * This POJO is necessary because it stores Faculty user data. This prevents Student users from potentially
- * tricking MongoDB or other sources into thinking that they are an Administrator. By design, it is
- * impossible to 'register' a Faculty member, and they need to be inserted via JSON into the
- * MongoDB 'FacultyCredentials' database.
- */
+public class StudentPrincipal {
 
-@JsonIgnoreProperties (ignoreUnknown = true)
-public class Faculty {
-
-    private String teacherID;
+    private String studentID;
     private String firstName;
     private String lastName;
     private String email;
     private String username;
-    private int hashPass;
-    private final boolean role = true;
+    private String hashPass;
 
     // public empty constructor is needed to retrieve the POJO
-    public Faculty(){}
+    public StudentPrincipal(){}
 
-    public Faculty(String username, int password, String firstName, String lastName, String email) {
+    public StudentPrincipal(String username, String password, String firstName, String lastName, String email) {
         this.username = username;
         this.hashPass = password;
         this.email = email;
@@ -33,8 +22,12 @@ public class Faculty {
         this.lastName = lastName;
     }
 
-    public boolean isRole() {
-        return role;
+    public String getStudentID() {
+        return studentID;
+    }
+
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
     }
 
     public String getFirstName() {
@@ -69,44 +62,36 @@ public class Faculty {
         this.username = username;
     }
 
-    public String getTeacherID() {
-        return teacherID;
-    }
-
-    public void setTeacherID(String teacherID) {
-        this.teacherID = teacherID;
-    }
-
-    public int getHashPass() {
+    public String getPassword() {
         return hashPass;
     }
 
-    public void setHashPass(int hashPass) {
-        this.hashPass = hashPass;
+    public void setPassword(String password) {
+        this.hashPass = password;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Faculty faculty = (Faculty) o;
-        return hashPass == faculty.hashPass && Objects.equals(teacherID, faculty.teacherID) && Objects.equals(firstName, faculty.firstName) && Objects.equals(lastName, faculty.lastName) && Objects.equals(email, faculty.email) && Objects.equals(username, faculty.username);
+        StudentPrincipal that = (StudentPrincipal) o;
+        return Objects.equals(studentID, that.studentID) && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(email, that.email) && Objects.equals(username, that.username) && Objects.equals(hashPass, that.hashPass);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(teacherID, firstName, lastName, email, username, hashPass);
+        return Objects.hash(studentID, firstName, lastName, email, username, hashPass);
     }
 
     @Override
     public String toString() {
-        return "Faculty{" +
-                "teacherID='" + teacherID + '\'' +
+        return "StudentPrincipal{" +
+                "studentID='" + studentID + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
-                ", hashPass=" + hashPass +
+                ", password='" + hashPass + '\'' +
                 '}';
     }
 }

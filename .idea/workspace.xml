@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cef5f33b-d5e6-41d7-8482-0ec719960aca" name="Default Changelist" comment="Made the Authservlet return a cookie with a session and the Principal.">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="cef5f33b-d5e6-41d7-8482-0ec719960aca" name="Default Changelist" comment="Changing cors filter back to listen from Localhost:3000.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/johnKimAPI/web/filters/CorsFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/johnKimAPI/web/filters/CorsFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="devOps" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,10 +50,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\punsm\revature-intellij-repos\john-kim_api_p1-1" />
       <recent name="C:\Users\punsm\revature-intellij-repos\john-kim_api_p1-1\src\main\resources" />
       <recent name="C:\Users\punsm\revature-intellij-repos\john-kim_api_p1-1\src\main\webapp" />
     </key>
@@ -65,76 +67,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1628881038387</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Implemented a ContextLoaderListener">
-      <created>1628882236825</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1628882236825</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Committing three POJOs for the purposes of encapsulation">
-      <created>1628882838155</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1628882838155</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Changed the depreciated title of 'projectZero' to something more up-to-date and identifiable.">
-      <created>1628883207067</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1628883207067</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Added a skeleton to the User Servlet">
-      <created>1628884202258</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1628884202258</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Made an index page and configured logback.xml">
-      <created>1628884450405</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1628884450405</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Removed a depreciated relic, log4j2.xml.">
-      <created>1628884580672</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1628884580672</updated>
-    </task>
-    <task id="LOCAL-00007" summary="QOL changes">
-      <created>1628885330839</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1628885330839</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Added TestServlet for testing.">
-      <created>1628885836410</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1628885836410</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added buildspec.yml">
-      <created>1628886705836</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1628886705836</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Modified buildspec.yml">
-      <created>1628887555760</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1628887555761</updated>
     </task>
     <task id="LOCAL-00011" summary="modified the url path">
       <created>1628889296728</created>
@@ -213,7 +145,273 @@
       <option name="project" value="LOCAL" />
       <updated>1629331217408</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Committing .gitignore to main project body.">
+      <created>1629415924405</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1629415924405</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Committing .gitignore to main project body.">
+      <created>1629416053073</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1629416053073</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Test Push">
+      <created>1629416523563</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1629416523563</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added a Course Servlet, which will allow queries to read from the Courses database. The POST method can also be used to perform different C(R)UD operations, all of which fill the needs of the Project 1 MVP.">
+      <created>1629586137274</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1629586137275</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Repairing the Cors Filter">
+      <created>1629730495874</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1629730495874</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Removed the second 'Access-Control-Allow-Origin' header from the filter.">
+      <created>1629730855512</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1629730855512</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Pushing singular access-control header to the database for solely localhost testing.">
+      <created>1629731031594</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1629731031594</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Sanity check push">
+      <created>1629731965202</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1629731965202</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Sanity check push x2">
+      <created>1629735128185</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1629735128185</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Removed the pathing to be more plain/reliable.">
+      <created>1629839108898</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1629839108898</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Removed the pathing to be more plain/reliable.">
+      <created>1629839436609</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1629839436609</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Sanity Push x3">
+      <created>1629839988392</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1629839988392</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Sanity Push x3">
+      <created>1629840325970</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1629840325970</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Removing a slash from the current cors filter ACAO header.">
+      <created>1629840686649</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1629840686650</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Switching CORS filter for testing.">
+      <created>1629841566235</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1629841566235</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Added context.xml to see if this changes anything.">
+      <created>1629842951373</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1629842951373</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Attempting to set the header of Set-Cookie to be samesite=none">
+      <created>1629846123475</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1629846123475</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Switching from Cookie session authentication to JWT authentication.">
+      <created>1629910003121</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1629910003121</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Verifies a teacher's identity with a new 'isRole' field.">
+      <created>1629919227273</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1629919227273</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Sanity push">
+      <created>1629920128047</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1629920128047</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Added lastname to principal in hopes of returning a valid AuthUser for Javascript manipulation.">
+      <created>1629987340225</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1629987340225</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Replaced the authfac object in the API with a call to the lastname of the requesting user.">
+      <created>1629989517639</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1629989517639</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Decided against using the lastName field provided by the requestingUser for locating courses.">
+      <created>1629990800339</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1629990800339</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Removed the lastName field from the return principal. Will this really fix everything?">
+      <created>1629991114166</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1629991114166</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Adding lastName field back and allowing it to be granted to students as 'null'.">
+      <created>1629992295125</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1629992295125</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Repaired the authentication system to maintain integrity of the last names and such.">
+      <created>1629995503477</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1629995503478</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Repaired the json problem.">
+      <created>1630017416658</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1630017416658</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Swapped the Cors filter to allow traffic from the UI URL.">
+      <created>1630018705235</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1630018705235</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Swapped the Cors filter over to Localhost 3000">
+      <created>1630018985929</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1630018985930</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Repaired the Course and Enrolled servlet to be a little neater.">
+      <created>1630076024243</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1630076024258</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Bettered the Enroll Servlet.">
+      <created>1630077193323</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1630077193323</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Repaired the Enroll servlet to diligently perform its duties.">
+      <created>1630254547305</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1630254547309</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Made the Enroll methods return void, since their return value was never used.">
+      <created>1630255080633</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1630255080633</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Added JWT validation for the Enrollment POST method.">
+      <created>1630255405611</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1630255405611</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Repaired a problem with JWT validation in EnrollServlet">
+      <created>1630262640207</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1630262640208</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Added an errResp for the standard Error message in EnrollServlet">
+      <created>1630263560846</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1630263560847</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Changing CORS Filter to listen for input from the S3-hosted UI.">
+      <created>1630265439221</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1630265439222</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Changing cors filter back to listen from Localhost:3000.">
+      <created>1630265697700</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1630265697701</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -229,30 +427,32 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initialized the beginning basis of our API" />
-    <MESSAGE value="Implemented a ContextLoaderListener" />
-    <MESSAGE value="Committing three POJOs for the purposes of encapsulation" />
-    <MESSAGE value="Changed the depreciated title of 'projectZero' to something more up-to-date and identifiable." />
-    <MESSAGE value="Added a skeleton to the User Servlet" />
-    <MESSAGE value="Made an index page and configured logback.xml" />
-    <MESSAGE value="Removed a depreciated relic, log4j2.xml." />
-    <MESSAGE value="QOL changes" />
-    <MESSAGE value="Added TestServlet for testing." />
-    <MESSAGE value="Added buildspec.yml" />
-    <MESSAGE value="Modified buildspec.yml" />
-    <MESSAGE value="modified the url path" />
-    <MESSAGE value="changed the name of the artifact in the POM folder" />
-    <MESSAGE value="Bug fixing. Seeing if this compiles." />
-    <MESSAGE value="Removed the call to CORS filter, altered the buildspec.yml to make the pipeline more consistent." />
-    <MESSAGE value="Changed logback.xml" />
-    <MESSAGE value="Added the HealthCheckServlet." />
-    <MESSAGE value="Rebranded the application to be &quot;school&quot; rather than kim-john-api-p1. It is much less of a mouthful." />
-    <MESSAGE value="Added AuthServlet and gave it some body." />
-    <MESSAGE value="Fixed an error with the filesteam of applicationProperties." />
-    <MESSAGE value="Fixed an error with the filestream of applicationProperties." />
-    <MESSAGE value="Allowed the servlet to check in users. All that is needed now is to establish sessions with those users. Pushing this for testing purposes on the API pipeline." />
-    <MESSAGE value="Made the Authservlet return a cookie with a session and the Principal." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made the Authservlet return a cookie with a session and the Principal." />
+    <MESSAGE value="Removing a slash from the current cors filter ACAO header." />
+    <MESSAGE value="Switching CORS filter for testing." />
+    <MESSAGE value="Added context.xml to see if this changes anything." />
+    <MESSAGE value="Attempting to set the header of Set-Cookie to be samesite=none" />
+    <MESSAGE value="Switching from Cookie session authentication to JWT authentication." />
+    <MESSAGE value="Verifies a teacher's identity with a new 'isRole' field." />
+    <MESSAGE value="Sanity push" />
+    <MESSAGE value="Added lastname to principal in hopes of returning a valid AuthUser for Javascript manipulation." />
+    <MESSAGE value="Replaced the authfac object in the API with a call to the lastname of the requesting user." />
+    <MESSAGE value="Decided against using the lastName field provided by the requestingUser for locating courses." />
+    <MESSAGE value="Removed the lastName field from the return principal. Will this really fix everything?" />
+    <MESSAGE value="Adding lastName field back and allowing it to be granted to students as 'null'." />
+    <MESSAGE value="Repaired the authentication system to maintain integrity of the last names and such." />
+    <MESSAGE value="Repaired the json problem." />
+    <MESSAGE value="Swapped the Cors filter to allow traffic from the UI URL." />
+    <MESSAGE value="Swapped the Cors filter over to Localhost 3000" />
+    <MESSAGE value="Repaired the Course and Enrolled servlet to be a little neater." />
+    <MESSAGE value="Bettered the Enroll Servlet." />
+    <MESSAGE value="Repaired the Enroll servlet to diligently perform its duties." />
+    <MESSAGE value="Made the Enroll methods return void, since their return value was never used." />
+    <MESSAGE value="Added JWT validation for the Enrollment POST method." />
+    <MESSAGE value="Repaired a problem with JWT validation in EnrollServlet" />
+    <MESSAGE value="Added an errResp for the standard Error message in EnrollServlet" />
+    <MESSAGE value="Changing CORS Filter to listen for input from the S3-hosted UI." />
+    <MESSAGE value="Changing cors filter back to listen from Localhost:3000." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changing cors filter back to listen from Localhost:3000." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
