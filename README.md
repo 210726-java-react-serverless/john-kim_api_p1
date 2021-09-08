@@ -23,7 +23,7 @@ List of features ready and TODOs for future development
 * Faculty members can view all of their courses
 * Faculty members can update courses with new names and descriptions, as well as change their state to closed.
 * Faculty members can delete courses, which will automatically unenroll all students from the course.
-To-do list:
+### To-do list:
 * A system to prevent students from enrolling in the same course multiple times.
 * A system to view all students enrolled in a course, to keep count of them.
 * A system that automatically marks courses as closed after an elapsed period of time, or after an amount of seats are filled.
